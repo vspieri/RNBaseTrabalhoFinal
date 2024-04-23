@@ -1,12 +1,11 @@
-import { View, Text, TextInput, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TextInput, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 export default function Busca() {
-
-    const [search, setSearch] = useState(false);
-    const [ usuarios, setUsuarios ] = useState( [] );
-    const [ filtro, setFiltro ] = useState([]);
-
+    const [usuarios, setUsuarios ] = useState( [] );
+    const [error, setError ] = useState(false);
+    const [busca, setBusca] = useState(false);
+    const [filtro, setFiltro ] = useState(false);
 
     async function getUsuarios()
     {
@@ -16,17 +15,18 @@ export default function Busca() {
               'content-type': 'application/json'
             }
           })
-            .then( res => res.json())
+            .then( res => ( res.ok == true ) ? res.json() : false )
             .then( json => setUsuarios( json ) )
+            .catch( err => setError( true ) )
     }
 
     useEffect( () => {
         getUsuarios();
     }, [] );
 
-    function Search( valor ) {
-        setFiltro( usuarios.filter( (item) => item.name.firstname == valor ) );
-    }
+    useEffect( () => {
+        setFiltro( usuarios.filter( (item) => item.name.firstname == busca )[0] );
+    }, [busca] );
 
     return (
         <View style={css.container}>
@@ -35,15 +35,12 @@ export default function Busca() {
                     style={css.search}
                     placeholder="Buscar usuarios"
                     placeholderTextColor="white"
-                    TextInput={search}
-                    onChangeText={(digitado) => Search( digitado ) }
+                    TextInput={busca}
+                    onChangeText={(digitado) => setBusca( digitado ) }
                 />
             </View>
-            <FlatList
-                data={filtro}
-                renderItem={ ({item}) => <Text style={css.text}>{item.email}</Text>}
-                keyExtractor={ (item) => item.id }
-            />
+            { filtro && <Text style={css.text}>{filtro.name.firstname} {filtro.name.lastname}</Text> }
+            { ( !filtro && busca ) && <ActivityIndicator size="large" color="white" /> }
         </View>
     )
 }
