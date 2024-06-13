@@ -55,11 +55,13 @@ const css = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#191919"
+        backgroundColor: "#2A2359"
     },
     logo: {
-        width: "60%",
-        resizeMode: "contain"
+        width: "100%",
+
+        resizeMode: "contain",
+        marginBottom: -150
     },
     input: {
         width: "90%",

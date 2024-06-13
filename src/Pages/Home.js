@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Produto from '../Components/Produto';
 import Stories from '../Components/Stories';
+import Header from '../Components/Header';
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
     <View style={css.container}>
       {produtos ?
         <>
+        <Header/>
           <Stories produtos={produtos} />
           <FlatList
             data={produtos}
