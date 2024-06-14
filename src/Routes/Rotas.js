@@ -8,6 +8,7 @@ import { AuthContext } from '../Context/AuthContext';
 import Home from '../Pages/Home';
 //import Busca from '../Pages/Busca';
 import Login from '../Pages/Login';
+import Cadastro from '../Pages/Cadastro';
 //import Videos from '../Pages/Videos';
 //import Perfil from '../Pages/Perfil';
 //import Inserir from '../Pages/Inserir';
@@ -41,6 +42,24 @@ export default function Rotas() {
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="home" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Cadastro"
+                    component={Cadastro}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="login-variant" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Login"
+                    component={Login}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="login" color={color} size={size} />
                         ),
                     }}
                 />

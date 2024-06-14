@@ -4,20 +4,22 @@ import { View, StyleSheet, Image } from 'react-native'
 export default function Header() {
     return (
         <View style={css.Header}>
-            <Image source={require("../../assets/logo.png")} style={css.logo} />
+           <Image source={require("../../assets/logo.png")} style={css.logo}/>
         </View>
     )
 }
 const css = StyleSheet.create({
     Header: {
-        backgroundColor: "#2A2359",
-        height: 100,
-        width: "100%"
+        backgroundColor: "#514a83",
+        height: 250,
+        width: "100%",
+        borderRadius: 60,
+        marginTop: -160
     },
     logo: {
-        width: "100%",
-
-        resizeMode: "contain",
-        marginBottom: -150
+       resizeMode: "contain",
+       width: "50%",
+       marginLeft: 95,
+       marginTop: -30
     }
 })

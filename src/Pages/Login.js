@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
+import Header from "../Components/Header";
 
 export default function Login() {
 
@@ -16,11 +17,11 @@ export default function Login() {
 
     return (
         <ScrollView contentContainerStyle={css.container}>
-            <Image source={require("../../assets/logo.png")} style={css.logo} />
+            <Header/>
             <TextInput
                 inputMode="email"
                 placeholder="Email"
-                style={css.input}
+                style={css.input2}
                 value={email}
                 onChangeText={(digitado) => setEmail(digitado)}
                 placeholderTextColor="white"
@@ -52,16 +53,20 @@ const css = StyleSheet.create({
     container: {
         flexGrow: 1,
         width: "100%",
-        justifyContent: "center",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#2A2359"
+        backgroundColor: "#ffffff"
     },
-    logo: {
-        width: "100%",
-
-        resizeMode: "contain",
-        marginBottom: -150
+    input2: {
+        width: "90%",
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 15,
+        padding: 15,
+        backgroundColor: "#262626",
+        color: "white",
+        marginTop: 50
+        
     },
     input: {
         width: "90%",
@@ -70,7 +75,8 @@ const css = StyleSheet.create({
         marginBottom: 15,
         padding: 15,
         backgroundColor: "#262626",
-        color: "white"
+        color: "white",
+        
     },
     forgot: {
         width: "90%",
@@ -105,5 +111,5 @@ const css = StyleSheet.create({
     errorText: {
         color: "white",
         textAlign: "center"
-    }
+    },
 });
