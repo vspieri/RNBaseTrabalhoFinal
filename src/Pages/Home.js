@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Produto from '../Components/Produto';
-import Stories from '../Components/Stories';
+import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
+
+
 import Header from '../Components/Header';
+
 
 
 export default function Home() {
@@ -23,14 +26,21 @@ export default function Home() {
 
   useEffect(() => {
     getProdutos();
-  }, [])
+  }, []);
 
   return (
     <View style={css.container}>
       {produtos ?
         <>
         <Header/>
-          <Stories produtos={produtos} />
+        <View style={css.pesquisa}>
+        <MaterialCommunityIcons name="magnify" style={css.lupa}/>
+          <TextInput 
+          inputMode='text' 
+          placeholder='Encontre o Profissional'>
+          </TextInput>
+        </View>
+
           <FlatList
             data={produtos}
             renderItem={({ item }) => <Produto title={item.title} price={item.price} image={item.image} description={item.description} category={item.category} rating={item.rating} />}
@@ -46,17 +56,22 @@ export default function Home() {
 }
 const css = StyleSheet.create({
   container: {
-    backgroundColor: "#191919",
+    backgroundColor: "#ffff",
     flexGrow: 1,
     color: "white",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
-  text: {
-    color: "white"
+  pesquisa: {
+    marginTop: 40,
+    borderRadius: 300,
+    backgroundColor: "#54499B",
+    width: "60%",
+    display: "flex",
+    flexDirection: "row"
   },
-  stories: {
-    width: "100%",
-    height: 100
+  lupa: {
+    fontSize: 35
   }
+
 })

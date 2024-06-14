@@ -9,6 +9,7 @@ import Home from '../Pages/Home';
 //import Busca from '../Pages/Busca';
 import Login from '../Pages/Login';
 import Cadastro from '../Pages/Cadastro';
+import Registro from '../Pages/Registro';
 //import Videos from '../Pages/Videos';
 //import Perfil from '../Pages/Perfil';
 //import Inserir from '../Pages/Inserir';
@@ -60,6 +61,15 @@ export default function Rotas() {
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="login" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Registro"
+                    component={Registro}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="cash-register" color={color} size={size} />
                         ),
                     }}
                 />
