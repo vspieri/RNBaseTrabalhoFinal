@@ -9,20 +9,56 @@ export default function Cadastro()
         <View>
             <ScrollView contentContainerStyle={css.container}>
             <Header/>
-            <Text style={css.texto}>Login</Text>
+            <Text style={css.texto}>Cadastro</Text>
             <TextInput
                 inputMode="email"
                 placeholder="Email"
+                style={css.input}
+                placeholderTextColor="white"
+            />
+            <View style={css.btn1}>
+            <TextInput
+                inputMode="text"
+                placeholder="Telefone"
                 style={css.input2}
                 placeholderTextColor="white"
             />
             <TextInput
-                inputMode="text"
-                placeholder="Password"
-                secureTextEntry={true}
-                style={css.input}
+            inputMode="text"
+            placeholder="Data"
+            style={css.input3}
+            placeholderTextColor="white"
+            />
+            </View>
+            <TextInput
+                inputMode="email"
+                placeholder="Email"
+                style={css.input4}
                 placeholderTextColor="white"
             />
+            <TextInput
+                inputMode="email"
+                placeholder="Email Novamente"
+                style={css.input4}
+                placeholderTextColor="white"
+            />
+            <TextInput
+                inputMode="email"
+                placeholder="Senha"
+                secureTextEntry={true}
+                style={css.input4}
+                placeholderTextColor="white"
+            />
+            <TextInput
+                inputMode="email"
+                placeholder="Senha Novamente"
+                secureTextEntry={true}
+                style={css.input4}
+                placeholderTextColor="white"
+            />
+            <TouchableOpacity style={css.btnLogin}>
+                <Text style={css.btnLoginText}>Cadastrar</Text>
+            </TouchableOpacity>
             </ScrollView>
         </View>
     )
@@ -36,14 +72,24 @@ const css = StyleSheet.create({
         backgroundColor: "#ffffff"
     },
     input2: {
-        width: "90%",
+        width: "57%",
         height: 50,
         borderRadius: 10,
         marginBottom: 15,
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        marginTop: 50
+        
+    },
+    input3: {
+        width: "30%",
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 15,
+        padding: 15,
+        backgroundColor: "#54499B",
+        color: "white",
+        marginLeft: 10
         
     },
     input: {
@@ -54,6 +100,30 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
+        marginTop: 30
+        
+    },
+    input4: {
+        width: "90%",
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 15,
+        padding: 15,
+        backgroundColor: "#54499B",
+        color: "white",
+        
+    },
+    input5: {
+        width: "50%",
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 15,
+        padding: 15,
+        backgroundColor: "#796DC7",
+        color: "white",
+        marginTop: 1,
+        textAlign: "center"
+
         
     },
     forgot: {
@@ -71,7 +141,7 @@ const css = StyleSheet.create({
         height: 50,
         borderWidth: 1,
         borderRadius: 10,
-        marginTop: 30,
+        marginTop: 1,
         backgroundColor: "#796DC7",
         marginRight: 20
     },
