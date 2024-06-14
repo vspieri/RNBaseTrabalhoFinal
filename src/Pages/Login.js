@@ -2,6 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image 
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import Header from "../Components/Header";
+import Cadastro from './Cadastro';
 
 export default function Login() {
 
@@ -18,6 +19,7 @@ export default function Login() {
     return (
         <ScrollView contentContainerStyle={css.container}>
             <Header/>
+            <Text style={css.texto}>Login</Text>
             <TextInput
                 inputMode="email"
                 placeholder="Email"
@@ -38,9 +40,14 @@ export default function Login() {
             <View style={css.forgot}>
                 <Text style={css.forgotText}>Esqueceu a senha?</Text>
             </View>
+            <View style={css.btn1}>
             <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
                 <Text style={css.btnLoginText}>Log In</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={css.btnLogin1} onPress={Cadastro}>
+                <Text style={css.btnLoginText}>Cadastrar</Text>
+            </TouchableOpacity>
+            </View>
             {error &&
                 <View style={css.error}>
                     <Text style={css.errorText}>Revise os campos. Tente novamente!</Text>
@@ -63,7 +70,7 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 15,
         padding: 15,
-        backgroundColor: "#262626",
+        backgroundColor: "#54499B",
         color: "white",
         marginTop: 50
         
@@ -74,7 +81,7 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 15,
         padding: 15,
-        backgroundColor: "#262626",
+        backgroundColor: "#54499B",
         color: "white",
         
     },
@@ -89,12 +96,22 @@ const css = StyleSheet.create({
         fontWeight: "bold"
     },
     btnLogin: {
-        width: "90%",
+        width: "40%",
         height: 50,
         borderWidth: 1,
         borderRadius: 10,
         marginTop: 30,
-        backgroundColor: "#0195fd"
+        backgroundColor: "#796DC7",
+        marginRight: 20
+    },
+    btnLogin1: {
+        width: "40%",
+        height: 50,
+        borderWidth: 1,
+        borderRadius: 10,
+        marginTop: 30,
+        backgroundColor: "#796DC7",
+        
     },
     btnLoginText: {
         color: "white",
@@ -106,10 +123,20 @@ const css = StyleSheet.create({
     error: {
         width: "100%",
         height: 50,
-        marginTop: 30
+        marginTop: 10
     },
     errorText: {
         color: "white",
         textAlign: "center"
     },
+    btn1: {
+        display: "flex",
+        flexDirection: "row"
+    },
+    texto: {
+        fontSize: 60,
+        marginTop: 18,
+        fontStyle: "italic"
+        
+    }
 });
