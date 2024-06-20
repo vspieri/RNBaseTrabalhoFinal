@@ -11,6 +11,7 @@ import Login from '../Pages/Login';
 import Cadastro from '../Pages/Cadastro';
 import Registro from '../Pages/Registro';
 import Opcoes from '../Pages/Opcoes';
+import aceitos from '../Pages/aceitos';
 //import Videos from '../Pages/Videos';
 //import Perfil from '../Pages/Perfil';
 //import Inserir from '../Pages/Inserir';
@@ -77,6 +78,15 @@ export default function Rotas() {
                 <Tab.Screen
                     name="Opções"
                     component={Opcoes}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="options" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Fodao"
+                    component={aceitos}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="options" color={color} size={size} />
