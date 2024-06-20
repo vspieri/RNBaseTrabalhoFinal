@@ -10,6 +10,7 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Cadastro from '../Pages/Cadastro';
 import Registro from '../Pages/Registro';
+import Opcoes from '../Pages/Opcoes';
 //import Videos from '../Pages/Videos';
 //import Perfil from '../Pages/Perfil';
 //import Inserir from '../Pages/Inserir';
@@ -70,6 +71,15 @@ export default function Rotas() {
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="cash-register" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Opções"
+                    component={Opcoes}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="options" color={color} size={size} />
                         ),
                     }}
                 />
