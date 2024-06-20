@@ -3,26 +3,26 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext(0);
 
 function AuthProvider({ children }) {
-    const [logado, setLogado] = useState(true);
+    const [logado, setLogado] = useState(false);
     const [error, setError] = useState(false);
 
     async function Login(email, senha) {
 
         if (email != "" && senha != "") {
-            await fetch('https://fakestoreapi.com/auth/login', {
+            await fetch('http://10.133.22.38:5251/api/Login/Login', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: email,
-                    password: senha
+                    loginNome: email,
+                    loginSenha: senha
                 })
             })
-                .then(res => (res.ok == true) ? res.json() : false)
+                .then(res => res.json())
                 .then(json => {
-                    setLogado((json.token) ? true : false);
-                    setError((json.token) ? false : true);
+                    if(json.usuarioId != 0)
+                        setLogado(true);
                 }
                 )
                 .catch(err => setError(true))
