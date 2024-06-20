@@ -28,7 +28,7 @@ export default function Rotas() {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator
+            <Tab.Navigator initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,
                     tabBarShowLabel: false,
@@ -79,7 +79,7 @@ export default function Rotas() {
                     component={Opcoes}
                     options={{
                         tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name="options" color={color} size={size} />
+                            <MaterialCommunityIcons name="account-settings" color={color} size={size} />
                         ),
                     }}
                 />

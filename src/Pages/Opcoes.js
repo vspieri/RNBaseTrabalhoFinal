@@ -1,10 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from "../Components/Header";
 
-export default function Opcoes()
+export default function Opcoes({navigation})
 {
     return(
         <View>
@@ -42,12 +43,9 @@ export default function Opcoes()
                 <MaterialCommunityIcons style={css.icon} name="home" />
                 <Text style={css.text6}>Local</Text>
                 </View>
-                <TextInput
-                inputMode="text"
-                placeholder="Voltar"
-                style={css.input5}
-                placeholderTextColor="white"
-            />
+                <TouchableOpacity style={css.input5}>
+                <Text style={css.btnLoginText} onPress={() => navigation.navigate( "Home" ) }>Voltar</Text>
+            </TouchableOpacity>
             </ScrollView>
         </View>
     )
@@ -60,6 +58,10 @@ const css = StyleSheet.create({
         alignContent: "center",
         backgroundColor: "#ffffff"
     },
+    btnLoginText: {
+
+    },
+    
     input2: {
         width: "57%",
         height: 50,
@@ -107,7 +109,6 @@ const css = StyleSheet.create({
         height: 50,
         borderRadius: 10,
         marginBottom: 15,
-        padding: 15,
         backgroundColor: "#796DC7",
         color: "white",
         marginTop: 25,

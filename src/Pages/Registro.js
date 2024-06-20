@@ -16,22 +16,14 @@ export default function Cadastro()
                 style={css.input}
                 placeholderTextColor="white"
             />
-            <View style={css.btn1}>
             <TextInput
                 inputMode="numeric"
-                placeholder="Cpf"
-                style={css.input2}
+                placeholder="Cnpj"
+                style={css.input3}
                 placeholderTextColor="white"
             />
             <TextInput
-            inputMode="numeric"
-            placeholder="Data"
-            style={css.input3}
-            placeholderTextColor="white"
-            />
-            </View>
-            <TextInput
-                inputMode="number"
+                inputMode="numeric"
                 placeholder="Telefone"
                 style={css.input4}
                 placeholderTextColor="white"
@@ -69,8 +61,8 @@ const css = StyleSheet.create({
         alignContent: "center",
         backgroundColor: "#ffffff"
     },
-    input2: {
-        width: "57%",
+    input3: {
+        width: "90%",
         height: 50,
         borderRadius: 10,
         marginBottom: 15,
@@ -78,16 +70,6 @@ const css = StyleSheet.create({
         backgroundColor: "#54499B",
         color: "white",
         
-    },
-    input3: {
-        width: "30%",
-        height: 50,
-        borderRadius: 10,
-        marginBottom: 15,
-        padding: 15,
-        backgroundColor: "#54499B",
-        color: "white",
-        marginLeft: 10
         
     },
     input: {
@@ -175,10 +157,6 @@ const css = StyleSheet.create({
     errorText: {
         color: "white",
         textAlign: "center"
-    },
-    btn1: {
-        display: "flex",
-        flexDirection: "row"
     },
     texto: {
         fontSize: 23,
