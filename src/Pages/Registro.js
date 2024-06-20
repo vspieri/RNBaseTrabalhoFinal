@@ -31,8 +31,8 @@ export default function Cadastro()
             />
             </View>
             <TextInput
-                inputMode="text"
-                placeholder="Ensino"
+                inputMode="number"
+                placeholder="Telefone"
                 style={css.input4}
                 placeholderTextColor="white"
             />
@@ -48,12 +48,13 @@ export default function Cadastro()
                 style={css.input6}
                 placeholderTextColor="white"
             />
-            <View style={css.ft}>
-            <TextInput style={css.adi}>Adicione sua Foto</TextInput>
-            <Image source={require("../../assets/ped.jpg")} style={css.img}/>
-            </View>
+            <TextInput 
+            inputMode="text"
+            placeholder="Adicione o link da sua foto"
+             placeholderTextColor="white"
+            style={css.input7}></TextInput>
             
-            <TouchableOpacity style={css.btnLogin}>
+            <TouchableOpacity style={css.btnLogin1}>
                 <Text style={css.btnLoginText}>Cadastrar</Text>
             </TouchableOpacity>
             </ScrollView>
@@ -130,6 +131,15 @@ const css = StyleSheet.create({
         color: "white",
         
     },
+    input7: {
+        width: "90%",
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 15,
+        padding: 15,
+        backgroundColor: "#54499B",
+        color: "white"
+    }, 
     forgot: {
         width: "90%",
         marginTop: 10,
@@ -139,15 +149,6 @@ const css = StyleSheet.create({
     forgotText: {
         color: "#0195fd",
         fontWeight: "bold"
-    },
-    btnLogin: {
-        width: "40%",
-        height: 50,
-        borderWidth: 1,
-        borderRadius: 10,
-        marginTop: 1,
-        backgroundColor: "#796DC7",
-        marginRight: 0
     },
     btnLogin1: {
         width: "40%",
@@ -192,8 +193,6 @@ const css = StyleSheet.create({
         marginTop: 35,
         marginBottom: 25
     },
-    adi: {
-        fontSize: 15
-    }
+ 
    
 });
