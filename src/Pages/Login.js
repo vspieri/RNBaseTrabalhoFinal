@@ -42,7 +42,7 @@ export default function Login() {
             </View>
             <View style={css.btn1}>
             <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
-                <Text style={css.btnLoginText}>Log In</Text>
+                <Text style={css.btnLoginText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity style={css.btnLogin1} onPress={Cadastro}>
                 <Text style={css.btnLoginText}>Cadastrar</Text>
@@ -111,6 +111,7 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginTop: 30,
         backgroundColor: "#796DC7",
+       
         
     },
     btnLoginText: {

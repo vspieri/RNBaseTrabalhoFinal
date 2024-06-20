@@ -11,20 +11,20 @@ export default function Cadastro()
             <Header/>
             <Text style={css.texto}>Cadastro</Text>
             <TextInput
-                inputMode="email"
-                placeholder="Email"
+                inputMode="text"
+                placeholder="Username"
                 style={css.input}
                 placeholderTextColor="white"
             />
             <View style={css.btn1}>
             <TextInput
-                inputMode="text"
+                inputMode="numeric"
                 placeholder="Telefone"
                 style={css.input2}
                 placeholderTextColor="white"
             />
             <TextInput
-            inputMode="text"
+            inputMode="numeric"
             placeholder="Data"
             style={css.input3}
             placeholderTextColor="white"
@@ -43,14 +43,14 @@ export default function Cadastro()
                 placeholderTextColor="white"
             />
             <TextInput
-                inputMode="email"
+                inputMode="numeric"
                 placeholder="Senha"
                 secureTextEntry={true}
                 style={css.input4}
                 placeholderTextColor="white"
             />
             <TextInput
-                inputMode="email"
+                inputMode="numeric"
                 placeholder="Senha Novamente"
                 secureTextEntry={true}
                 style={css.input4}
