@@ -1,10 +1,9 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, navigate } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import Header from "../Components/Header";
-import Cadastro from './Cadastro';
 
-export default function Login() {
+export default function Login({ navigation }) {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -12,13 +11,12 @@ export default function Login() {
     const { Login, error } = useContext(AuthContext);
 
     function RealizaLogin() {
-       Login( email, senha );
+        Login(email, senha);
     }
-
 
     return (
         <ScrollView contentContainerStyle={css.container}>
-            <Header/>
+            <Header />
             <Text style={css.texto}>Login</Text>
             <TextInput
                 inputMode="email"
@@ -41,12 +39,9 @@ export default function Login() {
                 <Text style={css.forgotText}>Esqueceu a senha?</Text>
             </View>
             <View style={css.btn1}>
-            <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
-                <Text style={css.btnLoginText}>Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={css.btnLogin1} onPress={Cadastro}>
-                <Text style={css.btnLoginText}>Cadastrar</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
+                    <Text style={css.btnLoginText}>Login</Text>
+                </TouchableOpacity>              
             </View>
             {error &&
                 <View style={css.error}>
@@ -73,7 +68,7 @@ const css = StyleSheet.create({
         backgroundColor: "#54499B",
         color: "white",
         marginTop: 50
-        
+
     },
     input: {
         width: "90%",
@@ -83,7 +78,7 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        
+
     },
     forgot: {
         width: "90%",
@@ -111,8 +106,8 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginTop: 30,
         backgroundColor: "#796DC7",
-       
-        
+
+
     },
     btnLoginText: {
         color: "white",
@@ -138,6 +133,6 @@ const css = StyleSheet.create({
         fontSize: 60,
         marginTop: 18,
         fontStyle: "italic"
-        
+
     }
 });

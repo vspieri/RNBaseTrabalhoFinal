@@ -3,11 +3,10 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext(0);
 
 function AuthProvider({ children }) {
-    const [logado, setLogado] = useState(true);
+    const [logado, setLogado] = useState(false);
     const [error, setError] = useState(true);
 
     async function Login(email, senha) {
-
         if (email != "" && senha != "") {
             await fetch('http://10.133.22.38:5251/api/Login/Login', {
                 method: 'POST',
@@ -19,13 +18,12 @@ function AuthProvider({ children }) {
                     loginSenha: senha
                 })
             })
-                .then(res => res.json())
-                .then(json => {
-                    if(json.usuarioId != 0)
-                        setLogado(true);
-                }
-                )
-                .catch(err => setError(true))
+            .then(res => res.json())
+            .then(json => {
+                if (json.usuarioId != 0)
+                    setLogado(true);
+            })
+            .catch(err => setError(true))
         } else {
             setError(true)
         }

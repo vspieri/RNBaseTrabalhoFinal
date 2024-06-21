@@ -3,22 +3,20 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import Header from "../Components/Header";
 
-const [nome, setNome] = useState("");
+export default function Cadastro({navigation}) {
+    const [login, setlogin] = useState();
+    const [senha, setSenha] = useState();
 
-
-async function SalvarCadastro() {
-    await fetch('http://10.133.22.38:5251/api/Cadastro/CreateCadastro', {
+async function SalvarLogin() {
+    await fetch('http://10.133.22.38:5251/api/Login/CreateUser', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify({
-            cadastroNome: nome,
-            cnpj: cnpj,
-            telefone: telefone,
-            localidade: localidade,
-            descricao: descricao,
-            foto: foto
+            loginNome: login,
+            loginSenha: senha,
+
             })
         })
         .then(res => res.json())
@@ -29,62 +27,36 @@ async function SalvarCadastro() {
 }
 
 
-export default function Cadastro() {
     return (
         <View>
             <ScrollView contentContainerStyle={css.container}>
                 <Header />
+
+                
                 <Text style={css.texto}>Cadastro</Text>
                 <TextInput
                     inputMode="text"
                     placeholder="Digite seu Nome"
-                    style={css.input2}
-                    value={nome}
-                    onChangeText={(digitado) => setNome(digitado)}
                     placeholderTextColor="white"
-                />
-                <View style={css.btn1}>
-                    <TextInput
-                        inputMode="numeric"
-                        placeholder="Telefone"
-                        style={css.input2}
-                        placeholderTextColor="white"
-                    />
-                    <TextInput
-                        inputMode="numeric"
-                        placeholder="Data"
-                        style={css.input3}
-                        placeholderTextColor="white"
-                    />
-                </View>
-                <TextInput
-                    inputMode="email"
-                    placeholder="Email"
                     style={css.input4}
-                    placeholderTextColor="white"
+                    value={login}
+                    onChangeText={(digitado) => setlogin(digitado)}
+                
                 />
+
+
                 <TextInput
-                    inputMode="email"
-                    placeholder="Email Novamente"
-                    style={css.input4}
-                    placeholderTextColor="white"
-                />
-                <TextInput
-                    inputMode="numeric"
+                    inputMode="text"
                     placeholder="Senha"
                     secureTextEntry={true}
                     style={css.input4}
                     placeholderTextColor="white"
+                    value={senha}
+                    onChangeText={(digitado) => setSenha(digitado)}
                 />
-                <TextInput
-                    inputMode="numeric"
-                    placeholder="Senha Novamente"
-                    secureTextEntry={true}
-                    style={css.input4}
-                    placeholderTextColor="white"
-                />
+
                 <TouchableOpacity style={css.btnLogin}>
-                    <Text style={css.btnLoginText} onPress={SalvarCadastro}>Cadastrar</Text>
+                    <Text style={css.btnLoginText} onPress={SalvarLogin}>Cadastrar</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
@@ -96,7 +68,9 @@ const css = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#ffffff"
+        backgroundColor: "#ffffff",
+        height: "100%",
+        alignItems: "center",
     },
     input2: {
         width: "57%",
@@ -203,7 +177,7 @@ const css = StyleSheet.create({
     },
     texto: {
         fontSize: 60,
-        marginTop: 18,
+        marginTop: "25%",
         fontStyle: "italic"
 
     }

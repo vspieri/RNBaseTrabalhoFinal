@@ -3,52 +3,97 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import Header from "../Components/Header";
 
-export default function Cadastro()
-{
-    return(
+export default function Registro() {
+    const [nome, setNome] = useState();
+    const [cnpj, setCnpj] = useState();
+    const [telefone, setTelefone] = useState();
+    const [localidade, setLocalidade] = useState();
+    const [descricao, setDescricao] = useState();
+    const [foto, setFoto] = useState();
+
+    async function SalvarCadastro() {
+        await fetch('http://10.133.22.38:5251/api/Cadastro/CreateCadastro', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                cadastroNome: nome,
+                cnpj: cnpj,
+                telefone: telefone,
+                localidade: localidade,
+                descricao: descricao,
+                foto: foto
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+            })
+            .catch(err => setError(true))
+    }
+
+    return (
         <View>
             <ScrollView contentContainerStyle={css.container}>
-            <Header/>
-            <Text style={css.texto}>Deseja ser um afiliado do nosso app?</Text>
-            <TextInput
-                inputMode="text"
-                placeholder="Nome Completo"
-                style={css.input}
-                placeholderTextColor="white"
-            />
-            <TextInput
-                inputMode="numeric"
-                placeholder="Cnpj"
-                style={css.input3}
-                placeholderTextColor="white"
-            />
-            <TextInput
-                inputMode="numeric"
-                placeholder="Telefone"
-                style={css.input4}
-                placeholderTextColor="white"
-            />
-            <TextInput
-                inputMode="text"
-                placeholder="Localização"
-                style={css.input5}
-                placeholderTextColor="white"
-            />
-            <TextInput
-                inputMode="text"
-                placeholder="Breve Descrição"
-                style={css.input6}
-                placeholderTextColor="white"
-            />
-            <TextInput 
-            inputMode="text"
-            placeholder="Adicione o link da sua foto"
-             placeholderTextColor="white"
-            style={css.input7}></TextInput>
-            
-            <TouchableOpacity style={css.btnLogin1}>
-                <Text style={css.btnLoginText}>Cadastrar</Text>
-            </TouchableOpacity>
+                <Header />
+                <Text style={css.texto}>Deseja ser um afiliado do nosso app?</Text>
+                <TextInput
+                    inputMode="text"
+                    placeholder="Nome Completo"
+                    style={css.input}
+                    placeholderTextColor="white"
+                    value={nome}
+                    onChangeText={(digitado) => setNome(digitado)}
+
+                />
+                <TextInput
+                    inputMode="numeric"
+                    placeholder="Cnpj"
+                    style={css.input3}
+                    placeholderTextColor="white"
+                    value={cnpj}
+                    onChangeText={(digitado) => setCnpj(digitado)}
+
+                />
+                <TextInput
+                    inputMode="numeric"
+                    placeholder="Telefone"
+                    style={css.input4}
+                    placeholderTextColor="white"
+                    value={telefone}
+                    onChangeText={(digitado) => setTelefone(digitado)}
+
+                />
+                <TextInput
+                    inputMode="text"
+                    placeholder="Localização"
+                    style={css.input5}
+                    placeholderTextColor="white"
+                    value={localidade}
+                    onChangeText={(digitado) => setLocalidade(digitado)}
+
+                />
+                <TextInput
+                    inputMode="text"
+                    placeholder="Breve Descrição"
+                    style={css.input6}
+                    placeholderTextColor="white"
+                    value={descricao}
+                    onChangeText={(digitado) => setDescricao(digitado)}
+
+                />
+                <TextInput
+                    inputMode="text"
+                    placeholder="Adicione o link da sua foto"
+                    placeholderTextColor="white"
+                    value={foto}
+                    onChangeText={(digitado) => setFoto(digitado)}
+                    style={css.input7}></TextInput>
+
+                <TouchableOpacity onPress={SalvarCadastro} style={css.btnLogin1}>
+                    <Text style={css.btnLoginText} onPress={SalvarCadastro}>Cadastrar</Text>
+                </TouchableOpacity>
             </ScrollView>
         </View>
     )
@@ -69,8 +114,8 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        
-        
+
+
     },
     input: {
         width: "90%",
@@ -81,7 +126,7 @@ const css = StyleSheet.create({
         backgroundColor: "#54499B",
         color: "white",
         marginTop: 30
-        
+
     },
     input4: {
         width: "90%",
@@ -91,7 +136,7 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        
+
     },
     input5: {
         width: "90%",
@@ -101,7 +146,7 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        
+
     },
     input6: {
         width: "90%",
@@ -111,7 +156,7 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white",
-        
+
     },
     input7: {
         width: "90%",
@@ -121,7 +166,7 @@ const css = StyleSheet.create({
         padding: 15,
         backgroundColor: "#54499B",
         color: "white"
-    }, 
+    },
     forgot: {
         width: "90%",
         marginTop: 10,
@@ -139,7 +184,7 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginTop: 30,
         backgroundColor: "#796DC7",
-        
+
     },
     btnLoginText: {
         color: "white",
@@ -162,7 +207,7 @@ const css = StyleSheet.create({
         fontSize: 23,
         marginTop: 18,
         fontStyle: "italic"
-        
+
     },
     img: {
         width: 120,
@@ -171,6 +216,6 @@ const css = StyleSheet.create({
         marginTop: 35,
         marginBottom: 25
     },
- 
-   
+
+
 });

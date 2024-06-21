@@ -13,7 +13,7 @@ export default function Home() {
   const [produtos, setProdutos] = useState([]);
 
   async function getProdutos() {
-    await fetch('http://10.133.22.38:5251/api/Produtos/GetAll', {
+    await fetch('http://10.133.22.38:5251/api/Cadastro/GetAllCadastros', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -43,8 +43,8 @@ export default function Home() {
 
           <FlatList
             data={produtos}
-            renderItem={({ item }) => <Produto title={item.title} price={item.price} image={item.image} description={item.description} category={item.category} rating={item.rating} />}
-            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => <Produto title={item.cadastroNome} price={item.cnpj} image={item.foto} description={item.telefone} category={item.localidade} rating={item.descrição} />}
+            keyExtractor={(item) => item.cadastroId}
             contentContainerStyle={{ height: (produtos.length * 600) + 110 }}
           />
         </>

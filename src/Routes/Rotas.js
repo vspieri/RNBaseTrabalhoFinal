@@ -58,15 +58,6 @@ export default function Rotas() {
                     }}
                 />
                 <Tab.Screen
-                    name="Login"
-                    component={Login}
-                    options={{
-                        tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name="login" color={color} size={size} />
-                        ),
-                    }}
-                />
-                <Tab.Screen
                     name="Registro"
                     component={Registro}
                     options={{
@@ -84,15 +75,15 @@ export default function Rotas() {
                         ),
                     }}
                 />
-                <Tab.Screen
+                {/* <Tab.Screen
                     name="Fodao"
                     component={aceitos}
                     options={{
                         tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name="options" color={color} size={size} />
+                            <MaterialCommunityIcons name="notification-clear-all" color={color} size={size} />
                         ),
                     }}
-                />
+                /> */}
             </Tab.Navigator>
         </NavigationContainer>
     )
